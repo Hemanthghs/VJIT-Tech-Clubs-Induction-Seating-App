@@ -26,6 +26,9 @@
     .notReg{
       color:red;
     }
+    .alloc{
+      color:chocolate;
+    }
   </style>
 </head>
 
@@ -73,9 +76,9 @@
         <h3>
           Year: <i class="dataEl">{{data[4]}}</i>
         </h3>
-        <h3>
-          Allocation: <i class="dataEl">{{data[-1]}}</i>
-        </h3>
+        <h2>
+          Allocated Seat: <i class="dataEl alloc">{{data[-1]}}</i>
+        </h2>
         {% endif %}
         {% if nr %}
         <h2 class="notReg">Not Registered</h2>
@@ -87,17 +90,16 @@
   </div>
 
   {% if full%}
-  <h1>{{full}}</h1>
+  <center><h1>{{full}}</h1></center>
+ 
   {% endif%}
 
-  {% if allocated %}
-  <h1>{{allocated}}</h1>
-  {% endif %}
+
 
   {%if data%}
   <div class="container text-center">
     <form method ="post" action="/verified">
-      <button class="btn btn-success" type="submit" name="submit_a" value="submit_a">Verify</button>
+      <button class="btn btn-success" type="submit" name="submit_a" value="submit_a">Allocate</button>
     </form>
   </div>
   {% endif %}
