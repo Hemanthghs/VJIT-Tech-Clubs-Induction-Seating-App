@@ -73,6 +73,9 @@
         <h3>
           Year: <i class="dataEl">{{data[4]}}</i>
         </h3>
+        <h3>
+          Allocation: <i class="dataEl">{{data[-1]}}</i>
+        </h3>
         {% endif %}
         {% if nr %}
         <h2 class="notReg">Not Registered</h2>
@@ -83,6 +86,13 @@
     </div>
   </div>
 
+  {% if full%}
+  <h1>{{full}}</h1>
+  {% endif%}
+
+  {% if allocated %}
+  <h1>{{allocated}}</h1>
+  {% endif %}
 
   {%if data%}
   <div class="container text-center">
