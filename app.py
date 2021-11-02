@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template
 import csv
 import pandas as pd
 import numpy as np
@@ -104,10 +104,19 @@ def verify():
     
     
     return render_template('index.html')
-    
+
+
+@app.route('/allocated')
+def get_allocated():
+    df1=pd.read_csv("final.csv")
+    # print(seating_ids)
+    # print(list(df1["Rolls"]))
+    # print(list(df1["Branch"]))
+    # return render_template("allocated.html",seats=seating_ids,roll_list=list(df1["Rolls"]),branchs=list(df1["Branch"]))
+    return render_template("allocated.html",alloc=[seating_ids,list(df1["Rolls"]),list(df1["Branch"])])
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
-    # app.run()
+    # app.run(host="0.0.0.0")
+    app.run()
     
